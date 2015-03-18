@@ -1,0 +1,14 @@
+{
+  "http": {
+    "port": 3001,
+    "prefix": ""
+  },
+  "mongo": {
+    "host": "localhost",
+    "db": "urlshortener"
+  },
+  "redis": {
+    "host": "localhost",
+    "port": 6379
+  }
+}
