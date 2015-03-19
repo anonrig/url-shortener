@@ -4,14 +4,25 @@ var router = require('express').Router(),
 var Account = require('./model');
 
 
+/**
+ * Create user path.
+ *
+ * TODO: Implement dummy data generator for first user.
+ */
 router.post('/', function(req, res, next) {
-    var account = req.body;
+    var user = req.body;
+
+    if (!user.email || !user.password || !user.name)
+        next(new APIError('Bad request', 400));
 
     new Account({
-        uuid: account.uuid
+        name: user.name || '',
+        email: user.email
     })
+        .setPassword(user.password)
         .save(function(err) {
-            if (err) return res.send(new APIError(err));
+            if (err) return next(err);
+
             res.status(201).end();
         });
 });
