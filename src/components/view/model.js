@@ -11,7 +11,7 @@ var ViewSchema = new mongoose.Schema({
 /**
  * Increments counter of the current view.
  */
-ViewSchema.methods.addCount = function() {
+ViewSchema.methods.incrementCounter = function() {
     this.counter += 1;
 };
 
