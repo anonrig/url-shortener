@@ -2,8 +2,20 @@ var router = require('express').Router(),
     APIError = require('urlshortener/lib/error'),
     auth = require('urlshortener/lib/auth');
 
-var Account = require('./model');
+var View = require('./model');
 
+
+
+/**
+ * List all views.
+ */
+router.get('/', auth.ensureAuthentication, function(req, res, next) {
+    View.find({}, function(err, views) {
+       if (err) return next(err);
+
+        res.json(views);
+    });
+});
 
 /**
  * Create view path.
@@ -23,6 +35,5 @@ router.post('/', auth.ensureAuthentication, function(req, res, next) {
             res.status(201).end();
         });
 });
-
 
 module.exports = router;
