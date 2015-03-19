@@ -14,7 +14,7 @@ router.post('/', auth.ensureAuthentication, function(req, res, next) {
     if (!view.url)
         next(new APIError('Bad request', 400));
 
-    new Account({
+    new View({
         url: view.url
     })
         .save(function(err) {
