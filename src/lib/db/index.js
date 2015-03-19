@@ -1,3 +1,7 @@
+/**
+ * @author Can Kutlu Kinay <me@ckk.im>
+ */
+
 var mongoose = require('mongoose'),
     config = require('urlshortener/config');
 

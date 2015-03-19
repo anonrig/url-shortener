@@ -1,3 +1,7 @@
+/**
+ * @author Can Kutlu Kinay <me@ckk.im>
+ */
+
 var nconf = require('nconf'),
     NODE_ENV = process.env.NODE_ENV || 'production';
 

@@ -1,3 +1,7 @@
+/**
+ * @author Can Kutlu Kinay <me@ckk.im>
+ */
+
 function APIError(message, status, extra, level) {
     Error.captureStackTrace(this, this.constructor);
     this.name = this.constructor.name;
