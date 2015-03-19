@@ -5,7 +5,7 @@ var ViewSchema = new mongoose.Schema({
     token: { type: String, unique: true, required: true },
     url: { type: String, required: true },
     counter: { type: Number, default: 0},
-    referrers: Array
+    referrers: { type: Object }
 });
 
 /**
@@ -17,13 +17,11 @@ ViewSchema.methods.incrementCounter = function() {
 
 /**
  * Adds referrer to the current view.
- * TODO: Check uniqueness of the referrers
  *
  * @param link
  */
 ViewSchema.methods.addReferrer = function(link) {
-    if (this.referrers.indexOf(link) != -1)
-        this.referrers.push(link);
+    this.referrers[link] = this.referrers[link] ? this.referrers[link]++ : 1;
 };
 
 module.exports = mongoose.model('View', ViewSchema);
