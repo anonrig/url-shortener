@@ -1,8 +1,11 @@
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+    Schema = mongoose.Schema,
+    crypto = require('urlshortener/lib/crypto');
+
+
 
 var ViewSchema = new mongoose.Schema({
-    token: { type: String, unique: true, required: true },
+    token: { type: String, unique: true, required: true, default: crypto.generateRandomString(null, 6)},
     url: { type: String, required: true },
     counter: { type: Number, default: 0},
     referrers: { type: Object }
