@@ -3,10 +3,16 @@ var express = require('express'),
 
 var View = require('urlshortener/components/view/model');
 
+/**
+ * Root path.
+ */
 router.get('/', function(req, res) {
     res.render('index', { message: 'Hello world' });
 });
 
+/**
+ * Main function called for Url Shortening.
+ */
 router.get('/:token', function(req, res) {
     View.findOne({ 'token': req.params.token }, function(err, current) {
         if (!err && !current)
