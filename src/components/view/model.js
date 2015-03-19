@@ -22,7 +22,8 @@ ViewSchema.methods.incrementCounter = function() {
  * @param link
  */
 ViewSchema.methods.addReferrer = function(link) {
-    this.referrers.push(link);
+    if (this.referrers.indexOf(link) != -1)
+        this.referrers.push(link);
 };
 
 module.exports = mongoose.model('View', ViewSchema);
