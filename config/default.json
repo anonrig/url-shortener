@@ -5,7 +5,7 @@
   },
   "mongo": {
     "host": "localhost",
-    "db": "urlshortener"
+    "db": "url-shortener"
   },
   "redis": {
     "host": "localhost",
